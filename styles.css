@@ -1,11 +1,19 @@
 @layer reset, base, theme, components, utils;
 
 @layer reset {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
-  h1, h2, h3, h4, h5, h6, p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
     margin: 0;
     padding: 0;
     font-size: inherit;
@@ -21,7 +29,8 @@
     text-decoration: underline;
   }
 
-  ul, ol {
+  ul,
+  ol {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -30,7 +39,7 @@
 
 @layer base {
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1.125rem;
     line-height: 1.5;
     color: var(--foreground-color);
@@ -46,6 +55,7 @@
   }
 }
 
+/* Header */
 @layer components {
   .main-header-top-bar {
     display: grid;
@@ -66,7 +76,7 @@
   }
 
   .main-header {
-    background-image: url('./imgs/header-bg.jpg');
+    background-image: url("./imgs/header-bg.jpg");
     height: 150vh;
     width: 100%;
     background-size: cover;
@@ -95,7 +105,7 @@
     line-height: 100px;
   }
 
-  .scroll-down{
+  .scroll-down {
     display: flex;
     gap: 0.5rem;
     align-items: flex-start;
@@ -104,6 +114,10 @@
   .scroll-down svg {
     width: 16px;
     animation: bounce 1s infinite alternate;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   @keyframes bounce {
@@ -116,12 +130,32 @@
   }
 }
 
+/* Reusable components */
+@layer components {
+  .section-tagline {
+    display: flex;
+    text-transform: uppercase;
+    gap: 1rem;
+    align-items: center;
+    color: var(--accent-color);
+    letter-spacing: .33em;
+  }
+
+  .section-tagline::before {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 2px;
+    background-color: var(--accent-color);
+  }
+}
+
 @layer utils {
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 
   .font-sans-serif {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 }
